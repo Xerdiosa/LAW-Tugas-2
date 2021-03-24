@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "2ad5782a-5e49-4ff2-ba80-71f375ece950",
+		"name": "LAW-Tugas2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "EuF0PvVdlG0CnrKUOaLA3OL4cci1YJUFmZKCvqwj",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "CiDMsofQHa1ZjOIUM5pyZuJDbNIilCdCCpURFwr3NHuoCNGG3Rcg1si7Yjga6L6gGv2E4hiKoLzddWs7G85ZzHzcnPB4Jtjv9IiufEZqvSQuQ5fWan29BiVJmDnpgZf5",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "test",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "akun_test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/o/token/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"o",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "compress",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "mfeyl05roCAcxUbzhvaBMLKaWcJem3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/akbar/Music/Spotify local/VORACITY(overlord).mp3"
+						},
+						{
+							"key": "file",
+							"value": "aaa.mp3",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "alice in wonderland",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "author",
+							"value": "akbar222",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "a a aa a aa",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8010/api/compress/",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"compress",
+						""
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "VORACITY(overlord).mp3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload file",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "mfeyl05roCAcxUbzhvaBMLKaWcJem3",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/akbar/Music/Spotify local/VORACITY(overlord).mp3"
+						},
+						{
+							"key": "file",
+							"value": "aaa.mp3",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "alice in wonderland",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "author",
+							"value": "akbar222",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "a a aa a aa",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8020/api/filestorage/",
+					"host": [
+						"localhost"
+					],
+					"port": "8020",
+					"path": [
+						"api",
+						"filestorage",
+						""
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "VORACITY(overlord).mp3",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "download file",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mfeyl05roCAcxUbzhvaBMLKaWcJem3"
+					}
+				],
+				"url": {
+					"raw": "localhost:8020/api/filestorage/?file=VORACITY(overlord).mp3",
+					"host": [
+						"localhost"
+					],
+					"port": "8020",
+					"path": [
+						"api",
+						"filestorage",
+						""
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "VORACITY(overlord).mp3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post metadata",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mfeyl05roCAcxUbzhvaBMLKaWcJem3"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Harry Potter",
+							"type": "text"
+						},
+						{
+							"key": "author",
+							"value": "J. K. Rowling",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8030/api/metadata/",
+					"host": [
+						"localhost"
+					],
+					"port": "8030",
+					"path": [
+						"api",
+						"metadata",
+						""
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "VORACITY(overlord).mp3",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "Harry Potter",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update metadata",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mfeyl05roCAcxUbzhvaBMLKaWcJem3"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Harry Potter",
+							"type": "text"
+						},
+						{
+							"key": "author",
+							"value": "J. K. Rowling",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "update",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8030/api/metadata/",
+					"host": [
+						"localhost"
+					],
+					"port": "8030",
+					"path": [
+						"api",
+						"metadata",
+						""
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "VORACITY(overlord).mp3",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "Harry Potter",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete metadata",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mfeyl05roCAcxUbzhvaBMLKaWcJem3"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Harry Potter",
+							"type": "text"
+						},
+						{
+							"key": "author",
+							"value": "J. K. Rowling",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "update",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8030/api/metadata/",
+					"host": [
+						"localhost"
+					],
+					"port": "8030",
+					"path": [
+						"api",
+						"metadata",
+						""
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "VORACITY(overlord).mp3",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "Harry Potter",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get metadata",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer mfeyl05roCAcxUbzhvaBMLKaWcJem3"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Harry Potter",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "author",
+							"value": "J. K. Rowling",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "description",
+							"value": "update",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8030/api/metadata/?title=Harry Potter",
+					"host": [
+						"localhost"
+					],
+					"port": "8030",
+					"path": [
+						"api",
+						"metadata",
+						""
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": "VORACITY(overlord).mp3",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "Harry Potter"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
