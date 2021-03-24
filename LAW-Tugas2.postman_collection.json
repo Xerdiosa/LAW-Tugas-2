@@ -339,7 +339,7 @@
 						}
 					]
 				},
-				"method": "PUT",
+				"method": "DELETE",
 				"header": [],
 				"body": {
 					"mode": "formdata",
@@ -347,16 +347,6 @@
 						{
 							"key": "title",
 							"value": "Harry Potter",
-							"type": "text"
-						},
-						{
-							"key": "author",
-							"value": "J. K. Rowling",
-							"type": "text"
-						},
-						{
-							"key": "description",
-							"value": "update",
 							"type": "text"
 						}
 					]
