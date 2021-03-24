@@ -1,7 +1,14 @@
 from django.http import HttpResponse, HttpResponseNotAllowed
+from .oauth_handler import oauth_handler
 import zipfile
 
 def compress(request):
+    try:
+        token = request.META.get('HTTP_AUTHORIZATION').split()[1]
+        if not oauth_handler(token):
+            return HttpResponse("UNAUTHORIZED", status=401)
+    except:
+        return HttpResponse("UNAUTHORIZED", status=401)
     if request.method == 'POST':
         original_file = request.FILES['file']
         response = HttpResponse(content_type='application/zip')

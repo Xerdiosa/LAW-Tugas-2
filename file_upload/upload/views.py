@@ -1,8 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponseNotAllowed, HttpResponse
 import os, mimetypes
+from .oauth_handler import oauth_handler
 
 def filestorage(request):
+    try:
+        token = request.META.get('HTTP_AUTHORIZATION').split()[1]
+        if not oauth_handler(token):
+            return HttpResponse("UNAUTHORIZED", status=401)
+    except:
+        return HttpResponse("UNAUTHORIZED", status=401)
     if request.method == 'POST':
         if 'file' not in request.FILES:
             return HttpResponse("FILE NOT PROVIDED", status=400)
